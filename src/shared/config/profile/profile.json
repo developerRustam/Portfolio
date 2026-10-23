@@ -20,17 +20,22 @@
       "React",
       "TypeScript",
       "JavaScript",
-      "Redux Toolkit"
+      "Redux Toolkit",
+      "RTK Query"
     ],
     "quality": [
+      "Jest",
       "React Testing Library",
       "Vitest",
+      "GitLab CI/CD",
       "GitHub Actions"
     ],
     "engineering": [
       "REST API",
       "Responsive UI",
-      "Performance"
+      "Performance",
+      "Code review",
+      "Mentoring"
     ]
   },
   "projects": [
@@ -98,8 +103,24 @@
         "en": "July 2024 — Present"
       },
       "responsibilities": {
-        "ru": [],
-        "en": []
+        "ru": [
+          "Разработал внутренний портал компании на React и TypeScript с базой знаний и сервисом мониторинга PageSpeed/Core Web Vitals: дашборды, графики, история проверок и отслеживание динамики показателей.",
+          "Реализовал интеграцию с REST API через RTK Query: загрузку и кеширование серверных данных, обновление результатов мониторинга, обработку ошибок и состояний загрузки.",
+          "Участвовал в миграции legacy-модулей с JavaScript на TypeScript: типизировал API и компоненты, устранял дублирование, разделял ответственность модулей и упрощал поддержку существующего кода.",
+          "Покрыл ключевой функционал портала тестами на Jest и React Testing Library. Настроил CI/CD-пайплайн в GitLab с автоматической проверкой типов, линтера, тестов и сборки.",
+          "Оптимизировал производительность коммерческого сайта: повысил PageSpeed на мобильных устройствах на 25–30 пунктов, выведя показатели в зелёную зону. Доработка кеширования позволила ускорить загрузку страниц на 15–25%.",
+          "Разработал модуль сравнения товаров с отображением характеристик и интеграцией в существующий каталог интернет-магазина.",
+          "Участвовал в проектировании frontend-решений совместно с тимлидом, проводил code review и помогал junior-разработчику разбираться в React, TypeScript и структуре проекта."
+        ],
+        "en": [
+          "Built an internal React and TypeScript portal with a knowledge base and PageSpeed/Core Web Vitals monitoring service, including dashboards, charts, check history, and metric trends.",
+          "Integrated REST APIs with RTK Query, including server-data loading and caching, monitoring-result updates, error handling, and loading states.",
+          "Contributed to migrating legacy modules from JavaScript to TypeScript by typing APIs and components, removing duplication, separating module responsibilities, and simplifying maintenance.",
+          "Covered key portal functionality with Jest and React Testing Library and configured a GitLab CI/CD pipeline for automated type checks, linting, tests, and builds.",
+          "Improved mobile PageSpeed by 25–30 points into the green range; caching improvements reduced page load time by 15–25%.",
+          "Built a product-comparison module with specification views and integration into an existing e-commerce catalog.",
+          "Contributed to frontend design decisions with the team lead, conducted code reviews, and helped a junior developer with React, TypeScript, and project structure."
+        ]
       }
     },
     {
@@ -113,8 +134,20 @@
         "en": "February 2022 — June 2024"
       },
       "responsibilities": {
-        "ru": [],
-        "en": []
+        "ru": [
+          "Участвовал в разработке 10+ коммерческих веб-проектов на React, TypeScript и JavaScript: создавал адаптивные интерфейсы, формы с валидацией, каталоги, фильтры и интерактивные UI-компоненты.",
+          "Интегрировал frontend с внешними и внутренними API: реализовывал получение, обработку и отображение данных, автоматизировал пользовательские сценарии, сократив ручные операции примерно на 7–8 часов в месяц.",
+          "Переводил legacy-функциональность с jQuery на JavaScript и TypeScript: перерабатывал формы, фильтры и интерактивные элементы, устранял дублирование и упрощал поддержку кода.",
+          "Оптимизировал клиентскую производительность: внедрял lazy loading, сокращал загрузку лишних скриптов и оптимизировал ресурсы, уменьшив время загрузки страниц примерно на 30%.",
+          "Улучшал качество интерфейсов: исправил 100+ проблем HTML-семантики, адаптивности и кроссбраузерности, повысив стабильность отображения на различных устройствах."
+        ],
+        "en": [
+          "Contributed to 10+ commercial web projects with React, TypeScript, and JavaScript, building responsive interfaces, validated forms, catalogs, filters, and interactive UI components.",
+          "Integrated frontend applications with external and internal APIs, implementing data retrieval, processing, and presentation while automating workflows and reducing manual work by approximately 7–8 hours per month.",
+          "Migrated legacy jQuery functionality to JavaScript and TypeScript, rebuilding forms, filters, and interactive elements while removing duplication and simplifying maintenance.",
+          "Improved client-side performance through lazy loading, reduced unnecessary script loading, and asset optimization, cutting page load time by approximately 30%.",
+          "Improved interface quality by resolving 100+ HTML semantics, responsiveness, and cross-browser issues, increasing display stability across devices."
+        ]
       }
     }
   ]

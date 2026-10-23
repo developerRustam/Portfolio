@@ -34,19 +34,31 @@ test("lists current portfolio projects without retired URLs", async () => {
   assert.ok(urls.every((url) => !url.includes("ganievrystam.github.io")));
 });
 
-test("publishes skills without subjective percentage ratings", async () => {
+test("publishes the approved skills without subjective ratings", async () => {
   const profile = await loadProfile();
 
   assert.deepEqual(profile.skills, {
-    frontend: ["React", "TypeScript", "JavaScript", "Redux Toolkit"],
-    quality: ["React Testing Library", "Vitest", "GitHub Actions"],
-    engineering: ["REST API", "Responsive UI", "Performance"],
+    frontend: ["React", "TypeScript", "JavaScript", "Redux Toolkit", "RTK Query"],
+    quality: [
+      "Jest",
+      "React Testing Library",
+      "Vitest",
+      "GitLab CI/CD",
+      "GitHub Actions",
+    ],
+    engineering: [
+      "REST API",
+      "Responsive UI",
+      "Performance",
+      "Code review",
+      "Mentoring",
+    ],
   });
   assert.equal(JSON.stringify(profile.skills).includes("%"), false);
   assert.equal(JSON.stringify(profile.skills).includes("PHP"), false);
 });
 
-test("contains only the confirmed current employment history", async () => {
+test("contains the approved employment history", async () => {
   const profile = await loadProfile();
 
   assert.deepEqual(
@@ -72,11 +84,20 @@ test("contains only the confirmed current employment history", async () => {
       { ru: "Frontend-разработчик", en: "Frontend Developer" },
     ],
   );
-  assert.deepEqual(
-    profile.experience.map(({ responsibilities }) => responsibilities),
-    [
-      { ru: [], en: [] },
-      { ru: [], en: [] },
-    ],
-  );
+
+  const [climate, exalter] = profile.experience;
+  assert.equal(climate.responsibilities.ru.length, 7);
+  assert.equal(climate.responsibilities.en.length, 7);
+  assert.equal(exalter.responsibilities.ru.length, 5);
+  assert.equal(exalter.responsibilities.en.length, 5);
+
+  const approvedRussianText = profile.experience
+    .flatMap(({ responsibilities }) => responsibilities.ru)
+    .join(" ");
+  assert.match(approvedRussianText, /25–30 пунктов/);
+  assert.match(approvedRussianText, /15–25%/);
+  assert.match(approvedRussianText, /10\+ коммерческих веб-проектов/);
+  assert.match(approvedRussianText, /7–8 часов в месяц/);
+  assert.match(approvedRussianText, /примерно на 30%/);
+  assert.match(approvedRussianText, /100\+ проблем/);
 });
