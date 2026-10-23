@@ -1,91 +1,101 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap'); */
-body{
-    font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #17202a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #0bceaf;
+  outline-offset: 3px;
 }
 
 .container {
-    max-width: 1210px;
-    margin: 0 auto;
-    padding: 0 15px;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 1210px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-.dark {
-    .btn {
-        color: #fff;
-        border: 1px solid #fff;
-    }
-    background-color:#100E17;
-    section {
-        background: #100E17;
-    }
-    p, span, h1,h2,h3,h4,h5, label, li {
-        color: #FFF;
-        opacity: 1;
-    }
-    text {
-        fill: #fafafa;
-    }
-    .skill__border {
-        background: rgba(199, 198, 198, 0.60);
-    }
-    .what__item {
-        background: #202026;
-        box-shadow: -16px 0px 48px 0px #000;
-    }
-    .experience__item {
-        background: #202026;
-    }
-    .header, .experience, #footer {
-        background-image: none !important;
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-    .contact {
-        &__icon {
-            fill: #fff;
-        }
-        &__text {
-            color: #FFF;
-        }
-    }
-    .navbar-item {
-        &__link {
-            color: #FFF;
-            &::after {
-                background: #FFF; 
-            }
-        }
-    }
-    .btn-switchLng {
-        color: #FFF;
-        border: 1px solid #fff;
-    }
-    .social__icon svg{
-        fill: #FFF;
-    }
-    .infoUser__img {
-        border: 20px solid rgba(0, 0, 0, 0.40);
-    }
-    .navbar-item::before {
-        background-color: #fff;
-    }
-    .respons__item::after {
-        background-color: #FFF;
-    }
-    .prof-skill {
-        .skill-border {
-            stroke: rgba(199, 198, 198, 0.60);
-        }
-    }
-    .skills {
-    &__skill {
-        &:hover::after {
-            background-color: #100E17;
 
-        }
-    }
+.dark {
+  background-color: #100e17;
+
+  section {
+    background: #100e17;
+  }
+
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  label,
+  li {
+    color: #fff;
+    opacity: 1;
+  }
+
+  .btn,
+  .btn-switchLng,
+  .navbar-item__switch {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .what__item,
+  .experience__item,
+  .skills-card,
+  .portfolio__card {
+    background: #202026;
+    box-shadow: -8px 8px 28px rgba(0, 0, 0, 0.5);
+  }
+
+  .skills-card__list li,
+  .portfolio__stack li {
+    background: rgba(11, 206, 175, 0.15);
+  }
+
+  .header,
+  .experience,
+  #footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: none !important;
+  }
+
+  .contact__text,
+  .social__icon,
+  .navbar-item__link,
+  .footer__email {
+    color: #fff;
+  }
+
+  .infoUser__img {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
 }
-    
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
 }

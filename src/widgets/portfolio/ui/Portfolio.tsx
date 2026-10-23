@@ -1,42 +1,42 @@
-import React, { useState } from "react";
-import './portfolio.scss'
 import { useTranslation } from "react-i18next";
+import profile from "shared/config/profile/profile.json";
+import "./portfolio.scss";
 
-export default function Portfolio () {
-    const {t} = useTranslation();
-    const [category, setCategory] = useState('all');
-    const allWorks:any = {all:[{src:'src/shared/assets/port-one.png', href:'https://ganievrystam.github.io/artificium'}, {src:'src/shared/assets/port-four.png', href:'https://ganievrystam.github.io/Chess/'}, {src:'src/shared/assets/port-two.png', href:'https://ganievrystam.github.io/labsales/'}, {src:'src/shared/assets/port-tree.png', href:'https://ganievrystam.github.io/NFT_React/'}], react:[{src:'src/shared/assets/port-tree.png', href:'https://ganievrystam.github.io/NFT_React/'},{src:'src/shared/assets/port-four.png', href:'https://ganievrystam.github.io/Chess/'},{src:'src/shared/assets/port-one.png', href:'https://ganievrystam.github.io/artificium'}],js:[{src:'src/shared/assets/port-two.png', href:'https://ganievrystam.github.io/labsales/'}]};
-    function switchCategory (e:any) {
-        document.querySelector('.nav__item--active').classList.remove('nav__item--active');
-        const category = e.target.getAttribute('data-role');
-        e.target.classList.add('nav__item--active');
-        setCategory(category);
-    }
-    return(
-        <section id="portfolio">
-            <div className="container">
-                <h2 className="what__header">{t('Последние работы')}</h2>
-                <nav className="nav">
-                    <ul className="nav__items">
-                        <li className="nav__item nav__item--active" data-role="all" onClick={(e) => switchCategory(e)}>
-                            All categories
-                        </li>
-                        <li className="nav__item" data-role="react" onClick={(e) => switchCategory(e)}>
-                            React
-                        </li>
-                        <li className="nav__item" data-role="js" onClick={(e) => switchCategory(e)}>
-                            JS
-                        </li>
-                    </ul>
-                </nav>
-                <div className="portfolio">
-                    <div className="portfolio__work">
-                    {allWorks[category].map( (work:any, index: number)=> {
-                            return <a className="portfolio__wrap" key={index} href={work.href}> <img className="portfolio__img" src={work.src} alt="" /></a>
-                        })}
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+type Language = "ru" | "en";
+
+export default function Portfolio() {
+  const { t, i18n } = useTranslation();
+  const language: Language = i18n.resolvedLanguage?.startsWith("en") ? "en" : "ru";
+
+  return (
+    <section id="portfolio" className="portfolio-section">
+      <div className="container">
+        <h2 className="what__header">{t("Избранные проекты")}</h2>
+        <div className="portfolio" role="list">
+          {profile.projects.map((project) => (
+            <article className="portfolio__card" key={project.id} role="listitem">
+              <p className="portfolio__category">{project.category}</p>
+              <h3 className="portfolio__title">{project.name}</h3>
+              <p className="portfolio__description">{project.description[language]}</p>
+              <ul className="portfolio__stack" aria-label="Technology stack">
+                {project.stack.map((technology) => (
+                  <li key={technology}>{technology}</li>
+                ))}
+              </ul>
+              <div className="portfolio__links">
+                {project.live && (
+                  <a href={project.live} className="btn" target="_blank" rel="noreferrer">
+                    Live
+                  </a>
+                )}
+                <a href={project.repository} className="btn" target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

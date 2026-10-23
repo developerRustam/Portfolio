@@ -1,69 +1,77 @@
 .experience {
-    padding: 90px 0;
-    &__wrap {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-    }
-    &__item {
-        border-radius: 4px;
-        background: #FFF;
-        box-shadow: 0px 10px 20px 4px rgba(0, 0, 0, 0.08);
-        width: 50%;
-        padding: 0 25px;
-        box-sizing: border-box;
-    }
-    &__header {
-        color: #000;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 30px;
-        margin-bottom: 10px;
+  padding: 90px 0;
+  background-position: center;
+  background-size: cover;
 
-        &--green {
-            color: #0BCEAF;
-        }
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  &__item {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 24px 28px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 20px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  &__header {
+    margin: 0 0 10px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+
+    &--green {
+      color: #087f70;
     }
-    &__date{
-        display: block;
-        color: #0BCEAF;
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
-    &__label {
-        opacity: 0.8;
-        color: #000;
-        font-size: 12px;
-        font-weight: 500;
-    }
+  }
+
+  &__date {
+    display: block;
+    margin-bottom: 16px;
+    color: #087f70;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__label {
+    margin: 0;
+    color: #000;
+    font-size: 13px;
+    font-weight: 700;
+  }
 }
+
 .respons {
-    margin-top: 2px;
-    &__item {
-        color: #000;
-        position: relative;
-        font-size: 14px;
-        font-weight: 500;
-        list-style: none;
+  margin: 12px 0 0;
+  padding-left: 20px;
 
-        &::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            left: -17px;
-            top: 4px;
-            border-radius: 50px;
-            background-color: #000;
-        }
-    }
+  &__item {
+    margin-top: 10px;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
 }
+
+@media (max-width: 900px) {
+  .experience__wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
-    .experience {
-        &__item{
-            width: 90%;
-        }
+  .experience {
+    padding: 64px 0;
+
+    &__item {
+      padding: 20px;
     }
+  }
 }
