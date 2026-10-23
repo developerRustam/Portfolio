@@ -25,14 +25,18 @@ export default function Experience() {
                 <span className="experience__header--green">{job.company}</span>
               </h3>
               <span className="experience__date">{job.period[language]}</span>
-              <p className="experience__label">{t("Ключевые результаты")}:</p>
-              <ul className="respons">
-                {job.responsibilities[language].map((responsibility) => (
-                  <li className="respons__item" key={responsibility}>
-                    {responsibility}
-                  </li>
-                ))}
-              </ul>
+              {job.responsibilities[language].length > 0 && (
+                <>
+                  <p className="experience__label">{t("Ключевые результаты")}:</p>
+                  <ul className="respons">
+                    {job.responsibilities[language].map((responsibility) => (
+                      <li className="respons__item" key={responsibility}>
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </article>
           ))}
         </div>

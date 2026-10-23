@@ -37,13 +37,11 @@ test("lists current portfolio projects without retired URLs", async () => {
 test("publishes skills without subjective percentage ratings", async () => {
   const profile = await loadProfile();
 
-  assert.deepEqual(profile.skills.frontend, [
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "Redux Toolkit",
-    "RTK Query",
-  ]);
+  assert.deepEqual(profile.skills, {
+    frontend: ["React", "TypeScript", "JavaScript", "Redux Toolkit"],
+    quality: ["React Testing Library", "Vitest", "GitHub Actions"],
+    engineering: ["REST API", "Responsive UI", "Performance"],
+  });
   assert.equal(JSON.stringify(profile.skills).includes("%"), false);
   assert.equal(JSON.stringify(profile.skills).includes("PHP"), false);
 });
@@ -64,7 +62,21 @@ test("contains only the confirmed current employment history", async () => {
       },
     ],
   );
-
-  assert.equal(profile.experience[0].responsibilities.ru.length, 7);
-  assert.equal(profile.experience[1].responsibilities.ru.length, 5);
+  assert.deepEqual(
+    profile.experience.map(({ role }) => role),
+    [
+      {
+        ru: "Frontend-разработчик · React / TypeScript / JavaScript",
+        en: "Frontend Developer · React / TypeScript / JavaScript",
+      },
+      { ru: "Frontend-разработчик", en: "Frontend Developer" },
+    ],
+  );
+  assert.deepEqual(
+    profile.experience.map(({ responsibilities }) => responsibilities),
+    [
+      { ru: [], en: [] },
+      { ru: [], en: [] },
+    ],
+  );
 });
