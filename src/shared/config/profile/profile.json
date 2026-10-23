@@ -1,0 +1,121 @@
+{
+  "seo": {
+    "ru": {
+      "title": "Рустам Ганиев — Frontend Developer",
+      "description": "Рустам Ганиев — Frontend-разработчик React и TypeScript с более чем четырьмя годами коммерческого опыта."
+    },
+    "en": {
+      "title": "Rustam Ganiev — Frontend Developer",
+      "description": "Rustam Ganiev is a React and TypeScript frontend developer with more than four years of commercial experience."
+    }
+  },
+  "contacts": {
+    "github": "https://github.com/developerRustam",
+    "telegram": "https://t.me/rustam_develop",
+    "linkedin": "https://www.linkedin.com/in/rustam-ganiev-286885167/",
+    "email": "ganiev.rystam@gmail.com"
+  },
+  "skills": {
+    "frontend": ["React", "TypeScript", "JavaScript", "Redux Toolkit", "RTK Query"],
+    "quality": ["Jest", "React Testing Library", "Vitest", "GitLab CI/CD", "GitHub Actions"],
+    "engineering": ["REST API", "Responsive UI", "Performance", "Code review", "Mentoring"]
+  },
+  "projects": [
+    {
+      "id": "seo-track",
+      "name": "SEO Track",
+      "category": "Full-stack",
+      "description": {
+        "ru": "Мониторинг PageSpeed и Core Web Vitals с историей проверок, инцидентами, расписанием и live-обновлениями.",
+        "en": "PageSpeed and Core Web Vitals monitoring with check history, incidents, scheduling, and live updates."
+      },
+      "stack": ["React", "TypeScript", "Express", "Prisma"],
+      "repository": "https://github.com/developerRustam/seoTrack",
+      "live": "https://seo-track-lyart.vercel.app/"
+    },
+    {
+      "id": "rick-and-morty",
+      "name": "Rick and Morty",
+      "category": "Frontend",
+      "description": {
+        "ru": "Приложение на Next.js с персонажами, статьями, квизами и AI-чатом.",
+        "en": "A Next.js application with characters, articles, quizzes, and an AI-assisted chat."
+      },
+      "stack": ["Next.js", "React", "TypeScript", "Redux Toolkit"],
+      "repository": "https://github.com/developerRustam/rickandmorty",
+      "live": ""
+    },
+    {
+      "id": "calculate",
+      "name": "Calculate",
+      "category": "Frontend",
+      "description": {
+        "ru": "Набор типизированных инструментов с Redux, интернационализацией и Storybook.",
+        "en": "A set of typed tools with Redux, internationalization, and Storybook."
+      },
+      "stack": ["TypeScript", "Redux", "Webpack", "Storybook"],
+      "repository": "https://github.com/developerRustam/Calculate",
+      "live": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "Климатические Технологии",
+      "role": {
+        "ru": "Frontend-разработчик · React / TypeScript / JavaScript",
+        "en": "Frontend Developer · React / TypeScript / JavaScript"
+      },
+      "period": {
+        "ru": "Июль 2024 — настоящее время",
+        "en": "July 2024 — Present"
+      },
+      "responsibilities": {
+        "ru": [
+          "Разработал внутренний портал компании на React и TypeScript с базой знаний и сервисом мониторинга PageSpeed/Core Web Vitals: дашборды, графики, история проверок и динамика показателей.",
+          "Реализовал интеграцию с REST API через RTK Query: загрузку и кеширование серверных данных, обновление результатов мониторинга, обработку ошибок и состояний загрузки.",
+          "Участвовал в миграции legacy-модулей с JavaScript на TypeScript: типизировал API и компоненты, устранял дублирование и разделял ответственность модулей.",
+          "Покрыл ключевой функционал портала тестами на Jest и React Testing Library; настроил GitLab CI/CD с проверкой типов, линтера, тестов и сборки.",
+          "Повысил мобильный PageSpeed коммерческого сайта на 25–30 пунктов до зелёной зоны; доработка кеширования ускорила загрузку страниц на 15–25%.",
+          "Разработал модуль сравнения товаров с отображением характеристик и интеграцией в каталог интернет-магазина.",
+          "Участвовал в проектировании frontend-решений, проводил code review и помогал junior-разработчику с React, TypeScript и структурой проекта."
+        ],
+        "en": [
+          "Built an internal React and TypeScript portal with a knowledge base and PageSpeed/Core Web Vitals monitoring: dashboards, charts, check history, and metric trends.",
+          "Integrated REST APIs with RTK Query, including server-data caching, monitoring updates, error handling, and loading states.",
+          "Helped migrate legacy modules from JavaScript to TypeScript by typing APIs and components, removing duplication, and separating module responsibilities.",
+          "Covered key portal flows with Jest and React Testing Library and configured GitLab CI/CD for type checks, linting, tests, and builds.",
+          "Improved mobile PageSpeed by 25–30 points into the green range; caching changes reduced page load time by 15–25%.",
+          "Built a product-comparison module with specification views and integration into an existing e-commerce catalog.",
+          "Contributed to frontend design decisions, reviewed code, and supported a junior developer with React, TypeScript, and project structure."
+        ]
+      }
+    },
+    {
+      "company": "Exalter Digital",
+      "role": {
+        "ru": "Frontend-разработчик",
+        "en": "Frontend Developer"
+      },
+      "period": {
+        "ru": "Февраль 2022 — июнь 2024",
+        "en": "February 2022 — June 2024"
+      },
+      "responsibilities": {
+        "ru": [
+          "Участвовал в разработке 10+ коммерческих веб-проектов на React, TypeScript и JavaScript: создавал адаптивные интерфейсы, формы с валидацией, каталоги, фильтры и интерактивные UI-компоненты.",
+          "Интегрировал frontend с внешними и внутренними API, автоматизировав пользовательские сценарии и сократив ручные операции примерно на 7–8 часов в месяц.",
+          "Переводил legacy-функциональность с jQuery на JavaScript и TypeScript: перерабатывал формы, фильтры и интерактивные элементы, устранял дублирование.",
+          "Внедрял lazy loading, сокращал загрузку лишних скриптов и оптимизировал ресурсы, уменьшив время загрузки страниц примерно на 30%.",
+          "Исправил 100+ проблем HTML-семантики, адаптивности и кроссбраузерности, повысив стабильность интерфейсов на разных устройствах."
+        ],
+        "en": [
+          "Contributed to 10+ commercial web projects with React, TypeScript, and JavaScript, building responsive interfaces, validated forms, catalogs, filters, and interactive UI components.",
+          "Integrated frontend applications with external and internal APIs, automating user workflows and reducing manual work by approximately 7–8 hours per month.",
+          "Migrated legacy jQuery functionality to JavaScript and TypeScript, rebuilding forms, filters, and interactive elements while removing duplication.",
+          "Introduced lazy loading, reduced unnecessary scripts, and optimized assets, cutting page load time by approximately 30%.",
+          "Resolved 100+ HTML semantics, responsiveness, and cross-browser issues, improving interface stability across devices."
+        ]
+      }
+    }
+  ]
+}

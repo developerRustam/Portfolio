@@ -1,94 +1,154 @@
 .infoUser {
-    margin-top: 145px;
-    padding-bottom: 180px;
-    &__hello {
-        padding: 6px 0px 6px 0px;
-        text-align: center;
-        border-radius: 20px 20px 20px 0px;
-        opacity: 0.8;
-        background: #0BCEAF;
-        color: #FFF;
-        letter-spacing: 1px;
-        font-size: 14px;
-        max-width: 123px;
-        box-sizing: border-box;
-    }
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    &__border {
-    }
-    &__img {
-        max-width: 360px;
-        max-height: 360px;
-        border: 20px solid rgba(0, 0, 0, 0.07);
-        border-radius: 209px;
-    }
+  margin-top: 145px;
+  padding-bottom: 180px;
+
+  &__hello {
+    max-width: 123px;
+    padding: 6px 0;
+    box-sizing: border-box;
+    border-radius: 20px 20px 20px 0;
+    background: #087f70;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+  }
+
+  &__img {
+    width: 360px;
+    height: 360px;
+    border: 20px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
+
 .info {
-    &__header {
-        color: #000;
-        font-size: 60px;
-        font-weight: 600;
-        line-height: 65px;
-        opacity: 0.8;
-        margin: 24px 0 10px 0;
-    }
-    &__position {
-        opacity: 0.8;
-        margin: 0;
-        color: #000;
-        font-size: 18px;
-        font-weight: 700;
-        line-height: 30px;
-    }
-    &__contacts {
-        margin-top: 30px;
+  &__header {
+    margin: 20px 0 10px;
+    color: #111;
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 1.05;
+  }
 
-    }
+  &__position {
+    margin: 0;
+    color: #111;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__contacts {
+    display: grid;
+    gap: 12px;
+    margin-top: 34px;
+  }
 }
+
 .contact {
-    margin-top: 10px;
-    &__icon {
-        svg {
-            width: 17px;
-            height: 14px;
-        }
-    }
-    &__text {
-        color: #000;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 24px;
-        margin-left: 15px;
-        text-decoration: none;
-    }
-}
-.social {
-    margin-top: 30px;
-    &__icon:first-child {
-        margin-left: 0;
-    }
-    &__icon {
-        margin-left: 28px;
-    }
-}
-@media (max-width: 700px) {
-    .infoUser {
-        padding-bottom: 80px;
-        &__container {
-            flex-direction: column-reverse;
-            text-align: center;
-        }
-    }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    color: #087f70;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  &__text {
+    color: #111;
+    font-size: 15px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
-@media (max-width: 450px) {
-    .infoUser {
-        &__img {
-            width: 85%;
-        }
+.social {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid rgba(8, 127, 112, 0.35);
+    border-radius: 8px;
+    color: #087f70;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  &__icon:hover {
+    border-color: #087f70;
+    background: rgba(8, 127, 112, 0.08);
+  }
+}
+
+@media (max-width: 840px) {
+  .infoUser {
+    margin-top: 90px;
+    padding-bottom: 110px;
+
+    &__container {
+      flex-direction: column-reverse;
+      text-align: center;
     }
+
+    &__hello {
+      margin: 0 auto;
+    }
+
+    &__img {
+      width: 260px;
+      height: 260px;
+      border-width: 12px;
+    }
+  }
+
+  .contact,
+  .social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoUser {
+    margin-top: 64px;
+    padding-bottom: 80px;
+
+    &__img {
+      width: 210px;
+      height: 210px;
+    }
+  }
+
+  .info__header {
+    font-size: 38px;
+  }
+
+  .info__contacts {
+    align-items: start;
+    text-align: left;
+  }
+
+  .social {
+    flex-wrap: wrap;
+  }
 }

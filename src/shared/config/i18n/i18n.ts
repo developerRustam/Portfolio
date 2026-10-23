@@ -1,41 +1,41 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-
-import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import translationEn from './locales/en/translation.json'
-import translationRu from './locales/ru/translation.json'
+import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
+import profile from "../profile/profile.json";
+import translationEn from "./locales/en/translation.json";
+import translationRu from "./locales/ru/translation.json";
 
 const resources = {
-  en: {
-    translation: translationEn
-  },
-  ru: {
-    translation: translationRu
-  }
+  en: { translation: translationEn },
+  ru: { translation: translationRu },
+};
+
+type Language = keyof typeof profile.seo;
+
+function syncDocumentLanguage(language: string) {
+  const supportedLanguage: Language = language.startsWith("en") ? "en" : "ru";
+  const metadata = profile.seo[supportedLanguage];
+
+  document.documentElement.lang = supportedLanguage;
+  document.title = metadata.title;
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute("content", metadata.description);
 }
 
+i18n.on("languageChanged", syncDocumentLanguage);
+
 i18n
-  // load translation using http -> see /public/locales (i.e. https://github.com/i18next/react-i18next/tree/master/example/react/public/locales)
-  // learn more: https://github.com/i18next/i18next-http-backend
-  // want your translations to be loaded from a professional CDN? => https://github.com/locize/react-tutorial#step-2---use-the-locize-cdn
-  .use(Backend)
-  // detect user language
-  // learn more: https://github.com/i18next/i18next-browser-languageDetector
   .use(LanguageDetector)
-  // pass the i18n instance to react-i18next.
   .use(initReactI18next)
-  // init i18next
-  // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources,
-    lng: "ru",
-    debug: true,
-
+    fallbackLng: "ru",
+    supportedLngs: ["ru", "en"],
     interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
-    }
-  });
-
+      escapeValue: false,
+    },
+  })
+  .then(() => syncDocumentLanguage(i18n.resolvedLanguage ?? i18n.language));
 
 export default i18n;
