@@ -13,13 +13,12 @@ test("leads with selected work and verified experience", async () => {
   const experience = source.indexOf("<Experience />");
   const about = source.indexOf("<About />");
   const skills = source.indexOf("<Skills />");
-  const capabilities = source.indexOf("<WhatIDo />");
 
   assert.ok(portfolio > -1);
   assert.ok(portfolio < experience);
   assert.ok(experience < about);
   assert.ok(about < skills);
-  assert.ok(skills < capabilities);
+  assert.doesNotMatch(source, /WhatIDo/);
 });
 
 test("hero exposes a factual summary and direct project action", async () => {

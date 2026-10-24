@@ -1,71 +1,75 @@
 .about {
-  margin-top: 100px;
+  padding: var(--section-space) 0;
+  background: var(--soft-bg);
 
-  &-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
+  &__heading {
+    margin-bottom: clamp(44px, 6vw, 76px);
   }
 
-  &__img {
-    width: 100%;
-    max-width: 540px;
-    height: auto;
-  }
-}
-
-.about-me {
-  &__header {
-    margin: 0 0 20px;
-    color: #111;
-    font-size: 32px;
-    line-height: 1.2;
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(48px, 9vw, 124px);
+    align-items: start;
   }
 
-  &__text {
+  &__intro {
     max-width: 520px;
-    margin: 0 0 26px;
-    color: #222;
-    font-size: 16px;
+    margin: 0;
+    color: var(--strong-text);
+    font-size: clamp(22px, 3vw, 32px);
     font-weight: 500;
-    line-height: 1.65;
+    letter-spacing: -0.03em;
+    line-height: 1.42;
+    text-wrap: pretty;
   }
 }
 
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  max-width: 520px;
-  margin-bottom: 44px;
+.about-capabilities {
+  border-top: 1px solid var(--line-color);
 
-  &__skill {
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid rgba(8, 127, 112, 0.55);
-    border-radius: 6px;
-    color: #111;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 22px;
+  &__item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line-color);
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--strong-text);
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0;
+      color: var(--muted-text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+  }
+
+  &__index {
+    padding-top: 4px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 760px) {
   .about {
-    margin-top: 72px;
-
-    &-wrapper {
-      flex-direction: column;
+    &__layout {
+      grid-template-columns: 1fr;
+      gap: 42px;
     }
 
-    &-me {
-      text-align: center;
+    &__intro {
+      font-size: clamp(21px, 6vw, 27px);
     }
-  }
-
-  .skills {
-    justify-content: center;
   }
 }

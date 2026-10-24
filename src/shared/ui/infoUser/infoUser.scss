@@ -121,6 +121,12 @@
       content: "";
     }
 
+    a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
     a:hover {
       color: var(--strong-text);
       text-decoration: underline;

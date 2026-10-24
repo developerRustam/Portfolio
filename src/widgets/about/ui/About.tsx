@@ -1,33 +1,40 @@
 import { useTranslation } from "react-i18next";
-import AboutImg from "shared/assets/about.png";
 import "./about.scss";
+
+const capabilities = [
+  { title: "Разработка приложений", description: "Разработка на React" },
+  { title: "Веб разработка", description: "Веб разработка текст" },
+  { title: "Тестирование", description: "Тестирование дескрипшен" },
+] as const;
 
 export default function About() {
   const { t } = useTranslation();
 
   return (
-    <section className="about" id="about">
+    <section className="about" id="about" aria-labelledby="about-title">
       <div className="container">
-        <div className="about-wrapper">
-          <img
-            className="about__img"
-            src={AboutImg}
-            alt={t("Иллюстрация рабочего места frontend-разработчика")}
-            width="1568"
-            height="961"
-            loading="lazy"
-          />
-          <div className="about-me">
-            <h2 className="about-me__header">{t("Обо мне")}</h2>
-            <p className="about-me__text">{t("Обо мне дескрипшен")}</p>
-            <div className="skills" aria-label={t("Технические навыки")}>
-              <span className="skills__skill">HTML</span>
-              <span className="skills__skill">CSS / SCSS</span>
-              <span className="skills__skill">React</span>
-              <span className="skills__skill">JavaScript</span>
-              <span className="skills__skill">TypeScript</span>
-              <span className="skills__skill">Node.js</span>
-            </div>
+        <header className="section-heading about__heading">
+          <p className="section-heading__eyebrow">03 — {t("Подход")}</p>
+          <h2 className="section-heading__title" id="about-title">
+            {t("Обо мне")}
+          </h2>
+        </header>
+
+        <div className="about__layout">
+          <p className="about__intro">{t("Обо мне дескрипшен")}</p>
+
+          <div className="about-capabilities" aria-label={t("Что я делаю")}>
+            {capabilities.map((capability, index) => (
+              <article className="about-capabilities__item" key={capability.title}>
+                <span className="about-capabilities__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3>{t(capability.title)}</h3>
+                  <p>{t(capability.description)}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

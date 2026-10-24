@@ -1,8 +1,11 @@
 {
   "Резюме": "Resume",
   "Обо мне": "About",
+  "Подход": "Approach",
   "Навыки": "Skills",
   "Опыт работы": "Experience",
+  "Опыт": "Experience",
+  "Показать остальные результаты": "Show {{count}} more",
   "Портфолио": "Portfolio",
   "Связаться": "Contact",
   "Привет я": "Hello, I'm",

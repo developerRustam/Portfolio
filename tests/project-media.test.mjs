@@ -9,6 +9,18 @@ const profilePath = path.join(root, "src/shared/config/profile/profile.json");
 
 test("every project media asset is deployable under the Portfolio base path", async () => {
   const profile = JSON.parse(await readFile(profilePath, "utf8"));
+  const projectsWithoutMedia = profile.projects.filter(
+    (project) => !project.media || Object.keys(project.media).length === 0,
+  );
+  assert.deepEqual(projectsWithoutMedia, []);
+
+  for (const project of profile.projects) {
+    for (const media of Object.values(project.media)) {
+      assert.ok(media.alt.ru);
+      assert.ok(media.alt.en);
+    }
+  }
+
   const mediaPaths = profile.projects.flatMap((project) =>
     Object.values(project.media ?? {}).flatMap(({ desktop, mobile }) =>
       [desktop, mobile].filter(Boolean),
