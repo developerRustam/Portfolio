@@ -13,11 +13,11 @@ export default function App() {
     <Suspense fallback={<p>Loading…</p>}>
       <Header />
       <main>
-        <About />
-        <WhatIDo />
-        <Skills />
-        <Experience />
         <Portfolio />
+        <Experience />
+        <About />
+        <Skills />
+        <WhatIDo />
       </main>
       <Footer />
     </Suspense>
