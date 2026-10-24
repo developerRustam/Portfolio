@@ -37,6 +37,19 @@ test("every translation key used by components exists in both locales", async ()
   assert.deepEqual({ missingRu, missingEn }, { missingRu: [], missingEn: [] });
 });
 
+test("localizes every project category", async () => {
+  const [profile, ru, en] = await Promise.all([
+    readFile(path.join(root, "src/shared/config/profile/profile.json"), "utf8").then(JSON.parse),
+    readFile(path.join(root, "src/shared/config/i18n/locales/ru/translation.json"), "utf8").then(JSON.parse),
+    readFile(path.join(root, "src/shared/config/i18n/locales/en/translation.json"), "utf8").then(JSON.parse),
+  ]);
+
+  for (const { category } of profile.projects) {
+    assert.ok(category in ru, `Missing Russian project category: ${category}`);
+    assert.ok(category in en, `Missing English project category: ${category}`);
+  }
+});
+
 test("defines localized page metadata", async () => {
   const profile = JSON.parse(
     await readFile(path.join(root, "src/shared/config/profile/profile.json"), "utf8"),

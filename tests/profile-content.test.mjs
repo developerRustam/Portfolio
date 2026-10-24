@@ -26,12 +26,66 @@ test("lists current portfolio projects without retired URLs", async () => {
   );
 
   assert.deepEqual(profile.projects.map(({ id }) => id), [
+    "artificium",
     "seo-track",
-    "rick-and-morty",
     "calculate",
   ]);
   assert.ok(urls.every((url) => url.startsWith("https://")));
   assert.ok(urls.every((url) => !url.includes("ganievrystam.github.io")));
+});
+
+test("publishes Artificium as an honest bilingual UI prototype", async () => {
+  const profile = await loadProfile();
+  const project = profile.projects.find(({ id }) => id === "artificium");
+
+  assert.deepEqual(project, {
+    id: "artificium",
+    name: "Artificium",
+    category: "UI prototype",
+    description: {
+      ru: "Адаптивный TypeScript-прототип рабочего пространства для командной работы с интерфейсами входа, управления проектами и чата.",
+      en: "A responsive TypeScript collaboration workspace UI prototype with sign-in, project-management, and chat interfaces.",
+    },
+    stack: ["TypeScript", "SCSS", "Webpack"],
+    repository: "https://github.com/developerRustam/artificium",
+    live: "https://developerrustam.github.io/artificium/#chat",
+    media: {
+      chat: {
+        desktop: "assets/projects/artificium/chat-desktop.webp",
+        mobile: "assets/projects/artificium/chat-mobile.webp",
+        alt: {
+          ru: "Интерфейс командного чата Artificium",
+          en: "Artificium collaboration chat interface",
+        },
+      },
+      auth: {
+        desktop: "assets/projects/artificium/auth-desktop.webp",
+        alt: {
+          ru: "Экран входа Artificium",
+          en: "Artificium sign-in screen",
+        },
+      },
+    },
+  });
+  assert.doesNotMatch(JSON.stringify(project), /AI-powered|AI service|ИИ-сервис/i);
+});
+
+test("publishes the restored Calculate project with its live URL", async () => {
+  const profile = await loadProfile();
+  const project = profile.projects.find(({ id }) => id === "calculate");
+
+  assert.deepEqual(project, {
+    id: "calculate",
+    name: "Password Craft",
+    category: "Frontend",
+    description: {
+      ru: "Адаптивный генератор паролей на React и TypeScript с Web Crypto API и поддержкой русского и английского языков.",
+      en: "A responsive React and TypeScript password generator using the Web Crypto API with Russian and English localization.",
+    },
+    stack: ["React", "TypeScript", "Web Crypto", "i18next"],
+    repository: "https://github.com/developerRustam/Calculate",
+    live: "https://developerrustam.github.io/Calculate/",
+  });
 });
 
 test("publishes the approved skills without subjective ratings", async () => {

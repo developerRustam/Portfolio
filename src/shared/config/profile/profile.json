@@ -40,6 +40,39 @@
   },
   "projects": [
     {
+      "id": "artificium",
+      "name": "Artificium",
+      "category": "UI prototype",
+      "description": {
+        "ru": "Адаптивный TypeScript-прототип рабочего пространства для командной работы с интерфейсами входа, управления проектами и чата.",
+        "en": "A responsive TypeScript collaboration workspace UI prototype with sign-in, project-management, and chat interfaces."
+      },
+      "stack": [
+        "TypeScript",
+        "SCSS",
+        "Webpack"
+      ],
+      "repository": "https://github.com/developerRustam/artificium",
+      "live": "https://developerrustam.github.io/artificium/#chat",
+      "media": {
+        "chat": {
+          "desktop": "assets/projects/artificium/chat-desktop.webp",
+          "mobile": "assets/projects/artificium/chat-mobile.webp",
+          "alt": {
+            "ru": "Интерфейс командного чата Artificium",
+            "en": "Artificium collaboration chat interface"
+          }
+        },
+        "auth": {
+          "desktop": "assets/projects/artificium/auth-desktop.webp",
+          "alt": {
+            "ru": "Экран входа Artificium",
+            "en": "Artificium sign-in screen"
+          }
+        }
+      }
+    },
+    {
       "id": "seo-track",
       "name": "SEO Track",
       "category": "Full-stack",
@@ -57,38 +90,21 @@
       "live": "https://seo-track-lyart.vercel.app/"
     },
     {
-      "id": "rick-and-morty",
-      "name": "Rick and Morty",
+      "id": "calculate",
+      "name": "Password Craft",
       "category": "Frontend",
       "description": {
-        "ru": "Приложение на Next.js с персонажами, статьями, квизами и AI-чатом.",
-        "en": "A Next.js application with characters, articles, quizzes, and an AI-assisted chat."
+        "ru": "Адаптивный генератор паролей на React и TypeScript с Web Crypto API и поддержкой русского и английского языков.",
+        "en": "A responsive React and TypeScript password generator using the Web Crypto API with Russian and English localization."
       },
       "stack": [
-        "Next.js",
         "React",
         "TypeScript",
-        "Redux Toolkit"
-      ],
-      "repository": "https://github.com/developerRustam/rickandmorty",
-      "live": ""
-    },
-    {
-      "id": "calculate",
-      "name": "Calculate",
-      "category": "Frontend",
-      "description": {
-        "ru": "Набор типизированных инструментов с Redux, интернационализацией и Storybook.",
-        "en": "A set of typed tools with Redux, internationalization, and Storybook."
-      },
-      "stack": [
-        "TypeScript",
-        "Redux",
-        "Webpack",
-        "Storybook"
+        "Web Crypto",
+        "i18next"
       ],
       "repository": "https://github.com/developerRustam/Calculate",
-      "live": ""
+      "live": "https://developerrustam.github.io/Calculate/"
     }
   ],
   "experience": [
