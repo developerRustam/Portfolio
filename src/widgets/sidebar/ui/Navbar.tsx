@@ -9,7 +9,7 @@ function SwitchLanguage() {
 
   return (
     <button
-      className="btn-switchLng"
+      className="navbar-control"
       type="button"
       aria-label={
         language === "ru" ? "RU — Switch to English" : "EN — Переключить на русский"
@@ -34,11 +34,19 @@ export function Navbar() {
   }, [theme]);
 
   return (
-    <nav className="navbar" aria-label="Primary navigation">
-      <div className="logo">
-        <span className="logo__text">{t("Резюме")}</span>
-      </div>
+    <nav className="navbar" aria-label={t("Основная навигация")}>
+      <a className="logo" href="#top" aria-label={t("В начало")}>
+        <span className="logo__mark">RG</span>
+        <span className="logo__label">Frontend</span>
+      </a>
+
       <ul className="navbar__items">
+        <li className="navbar-item">
+          <NavLink selector="navbar-item__link" href="#portfolio" text={t("Портфолио")} />
+        </li>
+        <li className="navbar-item">
+          <NavLink selector="navbar-item__link" href="#experiences" text={t("Опыт работы")} />
+        </li>
         <li className="navbar-item">
           <NavLink selector="navbar-item__link" href="#about" text={t("Обо мне")} />
         </li>
@@ -46,28 +54,22 @@ export function Navbar() {
           <NavLink selector="navbar-item__link" href="#skills" text={t("Навыки")} />
         </li>
         <li className="navbar-item">
-          <NavLink selector="navbar-item__link" href="#experiences" text={t("Опыт работы")} />
-        </li>
-        <li className="navbar-item">
-          <NavLink selector="navbar-item__link" href="#portfolio" text={t("Портфолио")} />
-        </li>
-        <li className="navbar-item">
           <NavLink selector="navbar-item__link" href="#footer" text={t("Связаться")} />
         </li>
-        <li className="navbar-item">
-          <SwitchLanguage />
-        </li>
-        <li className="navbar-item">
-          <button
-            className="navbar-item__switch"
-            type="button"
-            aria-label={theme === "light" ? "Enable dark theme" : "Enable light theme"}
-            onClick={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
-          >
-            {theme === "light" ? "Dark" : "Light"}
-          </button>
-        </li>
       </ul>
+
+      <div className="navbar__controls">
+        <SwitchLanguage />
+        <button
+          className="navbar-control navbar-control--theme"
+          type="button"
+          aria-label={theme === "light" ? t("Включить тёмную тему") : t("Включить светлую тему")}
+          onClick={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
+        >
+          <span className="navbar-control__dot" aria-hidden="true" />
+          {theme === "light" ? t("Тёмная") : t("Светлая")}
+        </button>
+      </div>
     </nav>
   );
 }

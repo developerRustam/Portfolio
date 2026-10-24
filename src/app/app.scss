@@ -2,6 +2,21 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  color-scheme: light;
+  --page-bg: #fbfcfb;
+  --surface-bg: #ffffff;
+  --soft-bg: #f3f6f5;
+  --strong-text: #111b1a;
+  --body-text: #283532;
+  --muted-text: #5b6865;
+  --line-color: rgba(17, 27, 26, 0.12);
+  --accent: #087f70;
+  --font-sans: "Segoe UI Variable", "Aptos", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --section-space: clamp(72px, 9vw, 128px);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,8 +24,38 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: #17202a;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--page-bg);
+  color: var(--body-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--body-text);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+#root.dark {
+  color-scheme: dark;
+  --page-bg: #101412;
+  --surface-bg: #181d1b;
+  --soft-bg: #202623;
+  --strong-text: #f5f7f6;
+  --body-text: #d7dedb;
+  --muted-text: #abb6b2;
+  --line-color: rgba(255, 255, 255, 0.13);
+  --accent: #b6f09c;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 26%, transparent);
 }
 
 img {
@@ -24,7 +69,7 @@ a {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid #0bceaf;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -36,66 +81,61 @@ a:focus-visible {
 }
 
 .dark {
-  background-color: #100e17;
-
-  section {
-    background: #100e17;
-  }
-
-  p,
-  span,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  label,
-  li {
-    color: #fff;
+  .what__header,
+  .what__head,
+  .what__text,
+  .about-me__header,
+  .about-me__text,
+  .skills__skill,
+  .skills-card__list li,
+  .experience__header,
+  .experience__label,
+  .respons__item,
+  .footer__header,
+  .footer__text,
+  .footer__email {
+    color: var(--strong-text);
     opacity: 1;
-  }
-
-  .btn,
-  .btn-switchLng,
-  .navbar-item__switch {
-    border-color: #fff;
-    color: #fff;
   }
 
   .what__item,
   .experience__item,
-  .skills-card,
-  .portfolio__card {
-    background: #202026;
-    box-shadow: -8px 8px 28px rgba(0, 0, 0, 0.5);
+  .skills-card {
+    border-color: var(--line-color);
+    background: var(--surface-bg);
+    box-shadow: 0 0 0 1px var(--line-color);
   }
 
-  .skills-card__list li,
-  .portfolio__stack li {
-    background: rgba(11, 206, 175, 0.15);
+  .skills-card__list li {
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface-bg));
   }
 
   .header,
   .experience,
   #footer {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--page-bg);
     background-image: none !important;
   }
 
-  .contact__text,
-  .social__icon,
-  .navbar-item__link,
-  .footer__email {
-    color: #fff;
-  }
-
-  .infoUser__img {
-    border-color: rgba(255, 255, 255, 0.15);
+  .skills-card__title,
+  .experience__header--green,
+  .experience__date {
+    color: var(--accent);
   }
 }
 
 @media (max-width: 640px) {
   .container {
     padding: 0 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #root {
+    transition: none;
   }
 }
