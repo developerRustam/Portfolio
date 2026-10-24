@@ -85,6 +85,19 @@ test("publishes the restored Calculate project with its live URL", async () => {
     stack: ["React", "TypeScript", "Web Crypto", "i18next"],
     repository: "https://github.com/developerRustam/Calculate",
     live: "https://developerrustam.github.io/Calculate/",
+    media: {
+      generator: {
+        desktop: "assets/projects/password-craft/generator-desktop.webp",
+        alt: {
+          ru: "Password Craft с десятью сгенерированными паролями",
+          en: "Password Craft displaying ten generated passwords",
+        },
+        caption: {
+          ru: "Генерация 10 паролей длиной 12 символов с выбранными наборами символов.",
+          en: "Ten generated 12-character passwords using the selected character sets.",
+        },
+      },
+    },
   });
 });
 

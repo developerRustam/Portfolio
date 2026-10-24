@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { Header } from "widgets/sidebar/header/ui/Header";
 import { About } from "widgets/about";
-import { WhatIDo } from "widgets/whatIDo";
 import { Skills } from "widgets/skills";
 import Experience from "widgets/experience/ui/Experience";
 import { Portfolio } from "widgets/portfolio";
@@ -17,7 +16,6 @@ export default function App() {
         <Experience />
         <About />
         <Skills />
-        <WhatIDo />
       </main>
       <Footer />
     </Suspense>

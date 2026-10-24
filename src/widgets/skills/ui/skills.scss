@@ -1,59 +1,77 @@
 .section-skills {
-  margin-bottom: 100px;
-  padding-top: 80px;
-}
+  padding: var(--section-space) 0;
+  background: var(--page-bg);
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.skills-card {
-  padding: 26px;
-  border: 1px solid rgba(11, 206, 175, 0.3);
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-
-  &__title {
-    margin: 0 0 18px;
-    color: #087f70;
-    font-size: 21px;
+  &__heading {
+    margin-bottom: clamp(44px, 6vw, 76px);
   }
+}
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.skills-index {
+  border-top: 1px solid var(--line-color);
+
+  &__row {
+    display: grid;
+    grid-template-columns: 48px minmax(180px, 0.38fr) minmax(0, 0.62fr);
+    gap: 22px;
+    align-items: start;
+    padding: clamp(26px, 4vw, 40px) 0;
+    border-bottom: 1px solid var(--line-color);
+
+    h3 {
+      margin: 0;
+      color: var(--strong-text);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 0;
+      margin: 0;
+      padding: 3px 0 0;
+      list-style: none;
+    }
 
     li {
-      padding: 7px 11px;
-      border-radius: 8px;
-      background: #f1fbf9;
-      color: #17202a;
-      font-size: 14px;
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      color: var(--body-text);
+      font-size: 15px;
+      font-weight: 550;
+      line-height: 1.5;
+
+      &:not(:last-child)::after {
+        width: 3px;
+        height: 3px;
+        margin: 0 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        content: "";
+      }
     }
   }
-}
 
-@media (max-width: 900px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
+  &__number {
+    padding-top: 5px;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
   }
 }
 
-@media (max-width: 640px) {
-  .section-skills {
-    margin-bottom: 64px;
-    padding-top: 64px;
-  }
+@media (max-width: 720px) {
+  .skills-index__row {
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
 
-  .skills-card {
-    padding: 22px;
+    ul {
+      grid-column: 2;
+      margin-top: 8px;
+    }
   }
 }

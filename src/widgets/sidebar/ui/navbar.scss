@@ -6,6 +6,10 @@
   min-height: 76px;
   border-bottom: 1px solid var(--line-color);
 
+  &__menu {
+    min-width: 0;
+  }
+
   &__items {
     display: flex;
     align-items: center;
@@ -70,6 +74,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-width: 44px;
   min-height: 44px;
   color: var(--strong-text);
   text-decoration: none;
@@ -144,8 +149,7 @@
     }
   }
 
-  .logo__label,
-  .navbar-item:last-child {
+  .logo__label {
     display: none;
   }
 }
@@ -155,13 +159,29 @@
     grid-template-columns: minmax(0, 1fr) auto;
     padding: 12px 0 0;
 
-    &__items {
+    &__menu {
+      position: relative;
       grid-column: 1 / -1;
       grid-row: 2;
+      min-width: 0;
+      margin: 0 -16px;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 5px;
+        width: 42px;
+        background: linear-gradient(to left, var(--page-bg) 24%, transparent);
+        content: "";
+        pointer-events: none;
+      }
+    }
+
+    &__items {
       justify-content: flex-start;
       gap: 22px;
-      margin: 0 -16px;
-      padding: 0 16px 5px;
+      padding: 0 44px 5px 16px;
       overflow-x: auto;
       scrollbar-width: none;
 
